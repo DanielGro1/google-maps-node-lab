@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Maps Demo</title>
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Google Map Demo</h1>
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      const location = { lat: 41.8781, lng: -87.6298 }; // Chicago
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: location,
+      });
+
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Chicago!",
+      });
+
+      map.addListener("click", (e) => {
+        alert(`Map clicked at: ${e.latLng}`);
+      });
+    }
+  </script>
+
+  <script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkfPbn9RKuey5FrLZ1gE81DIkIp31w8hE&callback=initMap">
+</script>
+</body>
+</html>
